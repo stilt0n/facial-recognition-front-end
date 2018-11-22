@@ -14,7 +14,7 @@ import FaceRecognition from './components/faceRecognition/FaceRecognition';
 const FACE_MODEL = "a403429f2ddf4b49b307e318f00e528b";
 //the face model id for Clarifai
 const clApp = new Clarifai.App({
-  apiKey: '01caa341e4814061a6e7183be682c4cd'
+  apiKey: //put key here
 });
 
 const particlesOptions = {
@@ -109,18 +109,14 @@ class App extends Component {
 
   onSubmit = () => {
       this.setState({imageUrl: this.state.input})
-      //see clarifai guide if there is confusion
-      //"a403429f2ddf4b49b307e318f00e528b"
       //predict takes a model and an image url as inputs
       clApp.models.predict(
         FACE_MODEL, 
         this.state.input)
       .then((response) => {
-        console.log('the response is:');
-        console.log(response);
         this.dispFaceBox(this.calculateFaceLocation(response));
         if (response) {
-          fetch('http://localhost:3001/image', {
+          fetch('https://agile-oasis-19176.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -172,26 +168,3 @@ class App extends Component {
 }
 
 export default App;
-
-//Clarifai API Clarifai.DETECT_FACE has changed to Clarifai.DETECT_FACE_MODEL
-//"https://samples.clarifai.com/metro-north.jpg"
-//your api key 01caa341e4814061a6e7183be682c4cd
-
-
-/*
-Info about set state:
-  -setstate is asynchronous
-  -React batches multiple calls to setState into one call
-  -Then it re-renders the component a single time
-  -this is why we can't call the imageUrl parameter directly
-  -Because React will not be done updating the state by the time
-  that Clarifai is called
-
-  more info: https://reactjs.org/docs/react-component.html#setstate
-
-Info about return from face detect function:
-  returns a bounding box, these are co-ordinates expressed in terms of
-  percentage some direction across the page.
-
-  we can use these numbers to create the box
-*/
