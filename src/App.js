@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
 import Navigation from './components/navigation/Navigation';
 import SignIn from './components/signIn/SignIn';
 import Register from './components/register/Register';
@@ -10,12 +9,6 @@ import ImageInputForm from './components/img-form/ImageInputForm';
 import Rank from './components/rank/Rank';
 import FaceRecognition from './components/faceRecognition/FaceRecognition';
 
-
-const FACE_MODEL = "a403429f2ddf4b49b307e318f00e528b";
-//the face model id for Clarifai
-const clApp = new Clarifai.App({
-  apiKey: JSON.stringify(process.env.CLARIFAI_KEY) //config var on heroku
-});
 
 const particlesOptions = {
   particles: {
@@ -109,10 +102,15 @@ class App extends Component {
 
   onSubmit = () => {
       this.setState({imageUrl: this.state.input})
-      //predict takes a model and an image url as inputs
-      clApp.models.predict(
-        FACE_MODEL, 
-        this.state.input)
+      
+      fetch('https://agile-oasis-19176.herokuapp.com/imageurl', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          id: this.state.input
+        })
+      })
+      .then(response => response.json())
       .then((response) => {
         this.dispFaceBox(this.calculateFaceLocation(response));
         if (response) {
