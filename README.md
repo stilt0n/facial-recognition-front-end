@@ -6,10 +6,9 @@ To see the backend of this app go here: https://github.com/stilt0n/facial-recogn
 
 General notes:
 I made this app using React for the front end and Express, Postgres and Knex for the back end.  The facial
-recognition uses Clarifai's facial recognition API.
+recognition uses Clarifai's facial recognition API.  Note that you don't need a real email to create an account.
 
 Notes for the future:
-There are a couple bugs that I'm aware of in this app, and probably a few that I'm not aware of.  They're
-pretty minor and the app mostly works, but I plan to fix them in the future.
+I am still working on this app.  There are a few bugs that I know about that I am planning to fix soon, and I am planning to add some new features to the project as well.  The things that are big on my list for when I have time are fixing the behavior of the facial recognition box when the image contains multiple faces or no faces (Clarifai, of course, deals with these fine. I just haven't gotten around to handling the responses it gives me in those situations).  There's a small issue with the display of the user's submission count that I also need to fix.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
