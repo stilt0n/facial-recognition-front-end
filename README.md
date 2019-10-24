@@ -1,6 +1,6 @@
 Facial Recognition App
 
-#THIS PROJECT IS CURRENTLY BROKEN, I WILL HOPEFULLY HAVE IT FIXED SOON
+# THIS PROJECT IS CURRENTLY BROKEN, I WILL HOPEFULLY HAVE IT FIXED SOON
 
 If you want to see this app in action, it is up on Heroku here:  https://facial-recognition-app-stilt0n.herokuapp.com/
 
