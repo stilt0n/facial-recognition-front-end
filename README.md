@@ -1,7 +1,12 @@
 Facial Recognition App
 
-# THIS PROJECT IS CURRENTLY BROKEN, I WILL HOPEFULLY HAVE IT FIXED SOON
-Update: I got a chance to try to figure out the problem with this app. I'm embarrassed to say that it looks like I deleted the entire back end off of Heroku to make room for another app. Now it's not a such a shock why the login has suddenly stopped working. I will hopefully have this fixed in the next couple of days.
+## About this project
+This is the front end for a web app that I made using React.  The app interacts with an Express.js back-end.  The allows for user registration and login and does facial recognition on user submitted image links.
+
+## What I learned
+This is my first full stack project and so I learned a lot about React, and about how to have a front-end, back-end, and SQL database interact.  I also recently deleted my back-end by mistake and learned a lesson in debugging the hard way as a result.  (The site is back up again now, I felt pretty stupid when I finally realized the problem).
+
+## How to view this app
 
 If you want to see this app in action, it is up on Heroku here:  https://facial-recognition-app-stilt0n.herokuapp.com/
 
